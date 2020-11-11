@@ -13,9 +13,9 @@ public class DeleteAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, Tracker tracker) {
+    public boolean execute(Input input, TrackerSingleton1 tracker) {
         int id = input.askInt("Введите номер заявки: ");
-        if (tracker.delete(id)) {
+        if (tracker.tracker.delete(id)) {
             out.println("Заявка удалена");
         } else {
             out.println("Ошибка! Заявки с таким id не найдено");

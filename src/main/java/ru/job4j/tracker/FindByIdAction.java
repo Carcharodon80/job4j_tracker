@@ -13,9 +13,9 @@ public class FindByIdAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, Tracker tracker) {
+    public boolean execute(Input input, TrackerSingleton1 trackerSingleton1) {
         int id = input.askInt("Введите id заявки: ");
-        Item item = tracker.findById(id);
+        Item item = trackerSingleton1.tracker.findById(id);
         if (item != null) {
             out.println(item.toString());
         } else {

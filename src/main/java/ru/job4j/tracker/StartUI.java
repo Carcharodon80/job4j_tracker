@@ -7,7 +7,7 @@ public class StartUI {
         this.out = out;
     }
 
-    public void init(Input input, Tracker tracker, UserAction[] actions) {
+    public void init(Input input, TrackerSingleton1 tracker, UserAction[] actions) {
         boolean run = true;
         while (run) {
             this.showMenu(actions);
@@ -31,11 +31,11 @@ public class StartUI {
     public static void main(String[] args) {
         Output output = new ConsoleOutput();
         Input input = new ValidateInput(output, new ConsoleInput());
-        Tracker tracker = new Tracker();
+        TrackerSingleton1 trackerSingleton1 = TrackerSingleton1.INSTANCE;
         UserAction[] actions = {
                 new CreateAction(output), new ShowAction(output), new ReplaceAction(output),
                 new DeleteAction(output), new FindByIdAction(output), new FindByNameAction(output), new Exit()
         };
-        new StartUI(output).init(input, tracker, actions);
+        new StartUI(output).init(input, trackerSingleton1, actions);
     }
 }
