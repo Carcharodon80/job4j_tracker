@@ -1,16 +1,14 @@
 package ru.job4j.tracker;
 
 public class TrackerSingleton4 {
-    Tracker tracker = new Tracker();
-
     public TrackerSingleton4() {
     }
 
     private static final class Holder {
-        private static final TrackerSingleton4 INSTANCE = new TrackerSingleton4();
+        private static final Tracker INSTANCE = new Tracker();
     }
 
-    public static TrackerSingleton4 getInstance() {
+    public static Tracker getInstance() {
         return Holder.INSTANCE;
     }
 

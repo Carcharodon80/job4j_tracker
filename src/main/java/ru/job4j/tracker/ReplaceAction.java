@@ -13,11 +13,11 @@ public class ReplaceAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, TrackerSingleton1 trackerSingleton1) {
+    public boolean execute(Input input, Tracker tracker) {
         int id = input.askInt("Введите id заявки: ");
         String newName = input.askStr("Введите новое имя: ");
         Item newItem = new Item(newName);
-        if (trackerSingleton1.tracker.replace(id, newItem)) {
+        if (tracker.replace(id, newItem)) {
             out.println("Замена произведена успешно");
         } else {
             out.println("Ошибка! Заявки с таким id не найдено");

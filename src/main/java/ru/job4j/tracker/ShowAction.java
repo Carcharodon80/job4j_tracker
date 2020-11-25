@@ -13,9 +13,9 @@ public class ShowAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, TrackerSingleton1 trackerSingleton1) {
+    public boolean execute(Input input, Tracker tracker) {
         out.println("All items:");
-        Item[] items = trackerSingleton1.tracker.findAll();
+        Item[] items = tracker.findAll();
         for (Item item : items) {
             out.println(item);
         }

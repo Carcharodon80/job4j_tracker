@@ -7,7 +7,7 @@ public class Exit implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, TrackerSingleton1 trackerSingleton1) {
+    public boolean execute(Input input, Tracker tracker) {
         return false;
     }
 }
