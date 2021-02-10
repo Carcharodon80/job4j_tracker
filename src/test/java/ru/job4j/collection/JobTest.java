@@ -10,7 +10,8 @@ import static org.junit.Assert.*;
 public class JobTest {
     @Test
     public void whenComparatorByNameAndPriority() {
-        Comparator<Job> comparator = new NameIncComparator().thenComparing(new PriorityIncComparator());
+        Comparator<Job> comparator = new NameIncComparator().
+                thenComparing(new PriorityIncComparator());
         int rsl = comparator.compare(
                 new Job("AAA", 0),
                 new Job("BBB", 0)
@@ -20,7 +21,8 @@ public class JobTest {
 
     @Test
     public void whenComparatorByNameAndPriority2() {
-        Comparator<Job> comparator = new NameIncComparator().thenComparing(new PriorityDecComparator());
+        Comparator<Job> comparator = new NameIncComparator().
+                thenComparing(new PriorityDecComparator());
         int rsl = comparator.compare(
                 new Job("AAA", 5),
                 new Job("AAA", 3)
@@ -30,14 +32,12 @@ public class JobTest {
 
     @Test
     public void whenComparatorByNameAndPriority3() {
-        Comparator<Job> comparator = new NameIncComparator().thenComparing(new PriorityIncComparator());
+        Comparator<Job> comparator = new NameIncComparator().
+                thenComparing(new PriorityIncComparator());
         int rsl = comparator.compare(
                 new Job("AAA", 3),
                 new Job("AAA", 3)
         );
         assertThat(rsl, is(0));
     }
-
-
-
 }

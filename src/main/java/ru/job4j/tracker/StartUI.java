@@ -37,8 +37,10 @@ public class StartUI {
         Tracker tracker = TrackerSingleton2.getInstance();
         List<UserAction> actions = Arrays.asList(
                 new CreateAction(output), new ShowAction(output), new ReplaceAction(output),
-                new DeleteAction(output), new FindByIdAction(output), new FindByNameAction(output), new Exit()
+                new DeleteAction(output), new FindByIdAction(output)
         );
+        actions.add(new FindByNameAction(output));
+        actions.add(new Exit());
         new StartUI(output).init(input, tracker, actions);
     }
 }

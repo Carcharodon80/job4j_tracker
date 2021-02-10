@@ -4,7 +4,7 @@ public class FactRec {
     public static int calc(int n) {
         int rsl = 1;
         if (n > 1) {
-            rsl = calc(n-1) * n;
+            rsl = calc(n - 1) * n;
         }
         return rsl;
     }

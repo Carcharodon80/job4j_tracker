@@ -80,15 +80,15 @@ public class StartUITest {
         tracker.add(new Item("New Item 2"));
         List<UserAction> actions = Arrays.asList(new ShowAction(out), new Exit());
         new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString(), is("Menu" + ln +
-                "0. Show all Items" + ln +
-                "1. Exit" + ln +
-                "All items:" + ln +
-                "id = 1, name = New Item 1" + ln +
-                "id = 2, name = New Item 2" + ln +
-                "Menu" + ln +
-                "0. Show all Items" + ln +
-                "1. Exit" + ln));
+        assertThat(out.toString(), is("Menu" + ln
+                + "0. Show all Items" + ln
+                + "1. Exit" + ln
+                + "All items:" + ln
+                + "id = 1, name = New Item 1" + ln
+                + "id = 2, name = New Item 2" + ln
+                + "Menu" + ln
+                + "0. Show all Items" + ln
+                + "1. Exit" + ln));
     }
 
     @Test
@@ -100,13 +100,13 @@ public class StartUITest {
         tracker.add(new Item("New Item"));
         List<UserAction> actions = Arrays.asList(new FindByIdAction(out), new Exit());
         new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString(), is("Menu" + ln +
-                "0. Find Item by Id" + ln +
-                "1. Exit" + ln +
-                "id = 1, name = New Item" + ln +
-                "Menu" + ln +
-                "0. Find Item by Id" + ln +
-                "1. Exit" + ln));
+        assertThat(out.toString(), is("Menu" + ln
+                + "0. Find Item by Id" + ln
+                + "1. Exit" + ln
+                + "id = 1, name = New Item" + ln
+                + "Menu" + ln
+                + "0. Find Item by Id" + ln
+                + "1. Exit" + ln));
     }
 
     @Test
@@ -119,14 +119,14 @@ public class StartUITest {
         tracker.add(new Item("Fix it!"));
         List<UserAction> actions = Arrays.asList(new FindByNameAction(out), new Exit());
         new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString(), is("Menu" + ln +
-                "0. Find Items by Name" + ln +
-                "1. Exit" + ln +
-                "id = 1, name = Fix it!" + ln +
-                "id = 2, name = Fix it!" + ln +
-                "Menu" + ln +
-                "0. Find Items by Name" + ln +
-                "1. Exit" + ln));
+        assertThat(out.toString(), is("Menu" + ln
+                + "0. Find Items by Name" + ln
+                + "1. Exit" + ln
+                + "id = 1, name = Fix it!" + ln
+                + "id = 2, name = Fix it!" + ln
+                + "Menu" + ln
+                + "0. Find Items by Name" + ln
+                + "1. Exit" + ln));
     }
 
     @Test
