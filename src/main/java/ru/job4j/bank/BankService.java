@@ -5,13 +5,32 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * основной класс, описывающий работу с банковскими счетами
+ * @author Roman Akulov
+ * @version 1.0
+ */
 public class BankService {
-    private Map<User, List<Account>> users = new HashMap<>();
+    /**
+     * карта клиентов банка с привязанными к ним счетами
+     */
+    private final Map<User, List<Account>> users = new HashMap<>();
 
+    /**
+     * добавляет нового клиента с пустым списком счетов в карту
+     * если клиент уже есть - добавлять не нужно
+     * @param user - новый пользователь
+     */
     public void addUser(User user) {
         users.putIfAbsent(user, new ArrayList<>());
     }
 
+    /**
+     * добавляет новый счет клиенту, клиента ищем по паспорту
+     * если счет уже есть - не добавляем
+     * @param passport паспорт клиента
+     * @param account новый счет
+     */
     public void addAccount(String passport, Account account) {
         User user = findByPassport(passport);
         if (user != null && !users.get(user).contains(account)) {
@@ -19,6 +38,11 @@ public class BankService {
         }
     }
 
+    /**
+     * метод ищет клиента по паспорту
+     * @param passport паспорт клиента
+     * @return возвращает клиента, если клиента с таким паспортом нет - возвращает null
+     */
     public User findByPassport(String passport) {
         User rsl = null;
         for (User user : users.keySet()) {
@@ -30,6 +54,12 @@ public class BankService {
         return rsl;
     }
 
+    /**
+     * метод ищет счет клиента по реквизиту, сначала клиента ищем по паспорту
+     * @param passport паспорт клиента
+     * @param requisite реквизит счета
+     * @return счет клиента, если счет или клиент не найден - возвращает null
+     */
     public Account findByRequisite(String passport, String requisite) {
         Account rsl = null;
         User user = findByPassport(passport);
@@ -44,6 +74,15 @@ public class BankService {
         return rsl;
     }
 
+    /**
+     * метод для перевода денег с одного счета на другой
+     * @param srcPassport паспорт клиента, с которого переводим деньги
+     * @param srcRequisite счет клиент, с которого переводим деньги
+     * @param destPassport паспорт клиента, которому переводим деньги
+     * @param destRequisite счет клиента, которому переводим деньги
+     * @param amount сумма перевода
+     * @return false - если какой-то счет не найден, или на счете не хватает денег
+     */
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
         boolean rsl = false;

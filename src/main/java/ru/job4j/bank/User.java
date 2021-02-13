@@ -2,8 +2,19 @@ package ru.job4j.bank;
 
 import java.util.Objects;
 
+/**
+ * pojo-класс для описания клиента банка
+ * @author Roman Akulov
+ * @version 1.0
+ */
 public class User {
+    /**
+     * паспорт клиента, уникальное поле для каждого клиента
+     */
     private String passport;
+    /**
+     * имя клиента
+     */
     private String username;
 
     public User(String passport, String username) {
@@ -27,6 +38,11 @@ public class User {
         this.username = username;
     }
 
+    /**
+     * клиенты сравниваются по уникальному паспорту
+     * @param o объект для сравнения
+     * @return true если объекты идентичны
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {
