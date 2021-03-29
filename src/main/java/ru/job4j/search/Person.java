@@ -1,5 +1,8 @@
 package ru.job4j.search;
 
+/**
+ * 6. Функции высшего порядка [#340662]
+ */
 public class Person {
     private String name;
     private String surname;

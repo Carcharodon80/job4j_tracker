@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
+/**
+ * 6. Функции высшего порядка [#340662]
+ */
 public class PhoneDictionaryTest {
 
     @Test
