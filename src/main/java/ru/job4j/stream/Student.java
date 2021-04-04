@@ -4,6 +4,7 @@ import java.util.Objects;
 
 /**
  * 1. Фильтрация учеников [#340676]
+ * 4. Преобразование List в Map. [#340679]
  */
 public class Student {
     private int score;
