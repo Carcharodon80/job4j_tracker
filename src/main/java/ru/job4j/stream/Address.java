@@ -3,7 +3,7 @@ package ru.job4j.stream;
 import java.util.Objects;
 
 /**
- * 2. Список адресов [#340677]
+ * 3. Уникальность элементов и сортировка. [#340678]
  */
 public class Address {
     private String city;
@@ -16,6 +16,10 @@ public class Address {
         this.street = street;
         this.home = home;
         this.apartment = apartment;
+    }
+
+    public String getCity() {
+        return city;
     }
 
     @Override

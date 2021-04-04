@@ -1,7 +1,7 @@
 package ru.job4j.stream;
 
 /**
- * 2. Список адресов [#340677]
+ * 3. Уникальность элементов и сортировка. [#340678]
  */
 public class Profile {
     private String name;
