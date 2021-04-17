@@ -5,6 +5,7 @@ import java.util.function.Predicate;
 
 /**
  * 6. Функции высшего порядка [#340662]
+ * 2. Local-Variable Type Inference [#340688]
  */
 public class PhoneDictionary {
     private ArrayList<Person> persons = new ArrayList<>();
@@ -25,7 +26,7 @@ public class PhoneDictionary {
         Predicate<Person> checkAddress = person -> person.getAddress().contains(key);
         Predicate<Person> combine = checkName.or(checkSurname.or(checkAddress.or(checkPhone)));
         ArrayList<Person> result = new ArrayList<>();
-        for (Person person : persons) {
+        for (var person : persons) {
             if (combine.test(person)) {
                 result.add(person);
             }
