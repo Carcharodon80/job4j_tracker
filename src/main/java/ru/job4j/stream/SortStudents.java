@@ -10,7 +10,6 @@ import java.util.stream.Collectors;
 public class SortStudents {
     public Map<String, Student> sortedStudents(List<Student> students) {
         return students.stream()
-                .distinct()
-                .collect(Collectors.toMap(e -> e.getSurname(), e -> e));
+                .collect(Collectors.toMap(Student::getSurname, e -> e, (f, s) -> f));
     }
 }

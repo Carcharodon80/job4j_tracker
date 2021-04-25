@@ -22,9 +22,9 @@ public class Attachment {
 
     @Override
     public String toString() {
-        return "Attachment{" +
-                "name='" + name + '\'' +
-                ", size=" + size +
-                '}';
+        return "Attachment{"
+                + "name='" + name + '\''
+                + ", size=" + size
+                + '}';
     }
 }

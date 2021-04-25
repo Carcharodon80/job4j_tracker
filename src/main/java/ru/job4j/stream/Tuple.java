@@ -24,11 +24,15 @@ public class Tuple {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || this.getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || this.getClass() != o.getClass()) {
+            return false;
+        }
         Tuple tuple = (Tuple) o;
-        return Double.compare(tuple.score, this.score) == 0 &&
-                Objects.equals(this.name, tuple.name);
+        return Double.compare(tuple.score, this.score) == 0
+                && Objects.equals(this.name, tuple.name);
     }
 
     @Override

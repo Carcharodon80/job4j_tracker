@@ -12,7 +12,7 @@ import java.util.function.*;
 public class FunctionalInterfaces {
     public static void main(String[] args) {
         Map<Integer, String> map = new HashMap<>();
-        BiConsumer<Integer, String> biCon = (key, value) -> map.put(key, value);
+        BiConsumer<Integer, String> biCon = map::put;
         biCon.accept(1, "one");
         biCon.accept(2, "two");
         biCon.accept(3, "three");
@@ -24,7 +24,7 @@ public class FunctionalInterfaces {
 
         BiPredicate<Integer, String> biPred = (key, value) -> key % 2 == 0 || value.length() == 4;
         for (Integer i : map.keySet()) {
-            if (biPred.test(i, map.get(i))){
+            if (biPred.test(i, map.get(i))) {
                 System.out.println("key: " + i + " value: " + map.get(i));
             }
         }
@@ -34,8 +34,8 @@ public class FunctionalInterfaces {
         System.out.println(strings);
 
         //Переводим строку в верхний регистр и выводим на экран
-        Consumer<String> con = string -> System.out.println(string);
-        Function<String, String> func = string -> string.toUpperCase();
+        Consumer<String> con = System.out::println;
+        Function<String, String> func = String::toUpperCase;
         for (String s : strings) {
             con.accept(func.apply(s));
         }

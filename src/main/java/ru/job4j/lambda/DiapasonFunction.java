@@ -11,10 +11,8 @@ public class DiapasonFunction {
     /**
      * Метод возвращает значения функции в заданном диапазоне (включительно!)
      *
-     * @param start
-     * @param end
-     * @param func  - функция, переданная в Function (см. задачу Встроенные функциональные интерфейсы)
-     * @return
+     * @param func  - функция, переданная в Function
+     *             (см. задачу Встроенные функциональные интерфейсы)
      */
     public static List<Double> diapason(int start, int end, Function<Double, Double> func) {
         List<Double> rsl = new ArrayList<>();

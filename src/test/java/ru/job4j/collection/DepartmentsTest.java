@@ -50,6 +50,4 @@ public class DepartmentsTest {
         result.sort(new DepDescComp());
         assertThat(expected, is(result));
     }
-
-
 }

@@ -10,10 +10,8 @@ import java.util.stream.Stream;
 public class MatrixToList {
     /**
      * flatMap получает элемент потока (массив Integer[]) и преобразует его в новый поток
-     * @param matrix
-     * @return
      */
-    public List<Integer> transformMatrixToList (Integer[][] matrix) {
-        return Stream.of(matrix).flatMap(e -> Stream.of(e)).collect(Collectors.toList());
+    public List<Integer> transformMatrixToList(Integer[][] matrix) {
+        return Stream.of(matrix).flatMap(Stream::of).collect(Collectors.toList());
     }
 }

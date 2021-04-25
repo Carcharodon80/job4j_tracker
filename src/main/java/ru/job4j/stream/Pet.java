@@ -34,14 +34,14 @@ public class Pet {
 
     @Override
     public String toString() {
-        return "Pet{" +
-                "type=" + type +
-                ", name='" + name + '\'' +
-                ", gender='" + gender + '\'' +
-                ", age=" + age +
-                ", hasOwner=" + hasOwner +
-                ", nameOwner='" + nameOwner + '\'' +
-                '}';
+        return "Pet{"
+                + "type=" + type
+                + ", name='" + name + '\''
+                + ", gender='" + gender + '\''
+                + ", age=" + age
+                + ", hasOwner=" + hasOwner
+                + ", nameOwner='" + nameOwner + '\''
+                + '}';
     }
 
     static class Builder {

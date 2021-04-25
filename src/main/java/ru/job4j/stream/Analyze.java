@@ -1,5 +1,6 @@
 package ru.job4j.stream;
 
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,7 +12,7 @@ import java.util.stream.Stream;
 public class Analyze {
     public static double averageScore(Stream<Pupil> stream) {
         return stream.map(Pupil::getSubjects)
-                .flatMap(subjects -> subjects.stream())
+                .flatMap(Collection::stream)
                 .mapToInt(Subject::getScore)
                 .average()
                 .orElse(0D);
@@ -25,12 +26,13 @@ public class Analyze {
 
     public static List<Tuple> averageScoreByPupil(Stream<Pupil> stream) {
         return stream.map(Pupil::getSubjects)
-                .flatMap(subjects -> subjects.stream())
-                .collect(Collectors.groupingBy(Subject::getName, Collectors.averagingDouble(Subject::getScore)))
+                .flatMap(Collection::stream)
+                .collect(Collectors.groupingBy(Subject::getName,
+                        Collectors.averagingDouble(Subject::getScore)))
                 .entrySet()
                 .stream()
                 .map(entry -> new Tuple(entry.getKey(), entry.getValue()))
-                .sorted((t1, t2) -> t2.getName().compareTo(t1.getName()))       //без этой строки - другой порядок, чем в тесте (такая реализация HashMap?)
+                .sorted((t1, t2) -> t2.getName().compareTo(t1.getName()))
                 .collect(Collectors.toList());
     }
 
@@ -43,8 +45,9 @@ public class Analyze {
 
     public static Tuple bestSubject(Stream<Pupil> stream) {
         return stream.map(Pupil::getSubjects)
-                .flatMap(subjects -> subjects.stream())
-                .collect(Collectors.groupingBy(Subject::getName, Collectors.summingDouble(Subject::getScore)))
+                .flatMap(Collection::stream)
+                .collect(Collectors.groupingBy(Subject::getName,
+                        Collectors.summingDouble(Subject::getScore)))
                 .entrySet()
                 .stream()
                 .map(entry -> new Tuple(entry.getKey(), entry.getValue()))
