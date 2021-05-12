@@ -9,15 +9,12 @@ import java.util.Map;
  * методом перестановок символов в первой строке.
  */
 public class FreezeStr {
-    //берем символы из строк и кладем в карту (значение - количество
-    //символа в строке), затем сравниваем карты
+    //берем символы из 1 строки и кладем в карту (значение - количество
+    //символа в строке), затем сравниваем
     public static boolean eq(String left, String right) {
-        boolean rsl = true;
-        if (left.length() != right.length()) {
-            rsl = false;
-        } else {
-            Map<Character, Integer> symbolsLeft = new HashMap<>();
-            Map<Character, Integer> symbolsRight = new HashMap<>();
+        boolean rsl = false;
+        Map<Character, Integer> symbolsLeft = new HashMap<>();
+        if (left.length() == right.length()) {
             for (int i = 0; i < left.length(); i++) {
                 Character charLeft = left.charAt(i);
                 if (symbolsLeft.containsKey(charLeft)) {
@@ -25,17 +22,24 @@ public class FreezeStr {
                 } else {
                     symbolsLeft.put(charLeft, 1);
                 }
-                Character charRight = right.charAt(i);
-                if (symbolsRight.containsKey(charRight)) {
-                    symbolsRight.put(charRight, symbolsRight.get(charRight) + 1);
-                } else {
-                    symbolsRight.put(charRight, 1);
-                }
             }
-            if (!symbolsLeft.equals(symbolsRight)) {
+        } else {
+            return false;
+        }
+        for (int i = 0; i < right.length(); i++) {
+            char currentChar = right.charAt(i);
+            if (!symbolsLeft.containsKey(currentChar)) {
                 return false;
+            } else if (symbolsLeft.containsKey(currentChar) && symbolsLeft.get(currentChar) > 1) {
+                symbolsLeft.put(currentChar, symbolsLeft.get(currentChar) - 1);
+            } else {
+                symbolsLeft.remove(currentChar);
             }
         }
+        if (symbolsLeft.isEmpty()) {
+            rsl = true;
+        }
+
         return rsl;
     }
 }
