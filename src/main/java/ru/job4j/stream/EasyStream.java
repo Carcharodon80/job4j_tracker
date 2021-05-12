@@ -9,7 +9,7 @@ import java.util.function.Predicate;
  * EasyStream [#401629]
  */
 public class EasyStream {
-    List<Integer> integerList;
+    private List<Integer> integerList;
 
     public EasyStream(List<Integer> integerList) {
         this.integerList = integerList;
