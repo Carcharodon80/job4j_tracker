@@ -11,7 +11,7 @@ import java.util.function.Predicate;
 public class EasyStream {
     private List<Integer> integerList;
 
-    public EasyStream(List<Integer> integerList) {
+    private EasyStream(List<Integer> integerList) {
         this.integerList = integerList;
     }
 
@@ -38,6 +38,6 @@ public class EasyStream {
     }
 
     public List<Integer> collect() {
-        return integerList;
+        return List.copyOf(integerList);
     }
 }
